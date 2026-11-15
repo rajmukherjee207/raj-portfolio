@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   --color-terminal-bg: #0A0A0A;
   --color-terminal-surface: #111111;
   --color-terminal-elevated: #1A1A1A;
@@ -28,6 +28,9 @@
   --animate-scanline: scanline 8s linear infinite;
   --animate-glitch: glitch 0.4s steps(1) infinite;
   --animate-marquee: marquee 20s linear infinite;
+}
+
+:root {
   --background: 10 10 10;
   --foreground: 240 240 240;
   --card: 17 17 17;
@@ -48,33 +51,83 @@
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
 }
 
 @keyframes glitch {
-  0% { clip-path: inset(40% 0 61% 0); transform: translate(-4px, 0); }
-  20% { clip-path: inset(92% 0 1% 0); transform: translate(4px, 0); }
-  40% { clip-path: inset(43% 0 1% 0); transform: translate(-2px, 0); }
-  60% { clip-path: inset(25% 0 58% 0); transform: translate(2px, 0); }
-  80% { clip-path: inset(54% 0 7% 0); transform: translate(-4px, 0); }
-  100% { clip-path: inset(58% 0 43% 0); transform: translate(0, 0); }
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(-4px, 0);
+  }
+
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(4px, 0);
+  }
+
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(-2px, 0);
+  }
+
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(2px, 0);
+  }
+
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: translate(-4px, 0);
+  }
+
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: translate(0, 0);
+  }
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes particle-drift {
-  0% { transform: translate3d(0, 0, 0); opacity: 0; }
-  20% { opacity: 0.3; }
-  100% { transform: translate3d(32px, -72px, 0); opacity: 0; }
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translate3d(32px, -72px, 0);
+    opacity: 0;
+  }
 }
 
 * {
@@ -106,17 +159,25 @@ a {
   color: #0A0A0A;
 }
 
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: #111111; }
-::-webkit-scrollbar-thumb { background: #FF3D00; }
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF3D00;
+}
 
 .grid-overlay::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.025) 39px, rgba(255,255,255,0.025) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.025) 39px, rgba(255,255,255,0.025) 40px);
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.025) 39px, rgba(255, 255, 255, 0.025) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, 0.025) 39px, rgba(255, 255, 255, 0.025) 40px);
   pointer-events: none;
   z-index: 0;
 }
@@ -160,7 +221,7 @@ a {
   overflow: hidden;
 }
 
-.progress-brutalist > div {
+.progress-brutalist>div {
   height: 100%;
   background: #FF3D00;
   transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
